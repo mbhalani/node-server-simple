@@ -3,6 +3,9 @@
 // module available for use. We do this by using require.
 var http = require('http');
 
+var port = process.env.PORT || 4008;
+var ip = process.env.IP || '127.0.0.1';
+
 // createServer method takes a callback function, which takes a
 // request argument and a response argument. The request
 // argument is what the server receives from the client when it
@@ -17,8 +20,7 @@ var server = http.createServer(function(request, response) {
 // Tell's the server to listen on given port.
 // arg - port number and callback.
 // callback is run when the port starts listening.
-var portNumber = 8008;
-server.listen(portNumber, function() {
-  console.log('Server-LISTEN: on port: ', portNumber);
+server.listen(port, ip, function() {
+  console.log('Server-LISTEN: on ip:port: ', ip,':', port);
 });
 
